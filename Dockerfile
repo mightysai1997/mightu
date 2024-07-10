@@ -1,5 +1,10 @@
 # Use Red Hat Universal Base Image (UBI) 9 as the base image
-FROM openssh-server:8.7p1
+FROM registry.access.redhat.com/redhat/rhel:9  # Base RHEL 9 image
+
+# Install OpenSSH with key generation utilities and the specific openssh-keycat version
+RUN yum install -y openssh-clients openssh-server openssh-keygen openssl openssh-keycat:8.7p1
+# ... (rest of your Dockerfile instructions)
+
 
 # Install OpenSSH server, client, and OpenSSL
 #RUN yum -y install openssh-server openssh-clients openssl
